@@ -1,0 +1,11 @@
+
+<div class="container my-5">
+  <h2>Here are the clubs we found in "<%= params[:city] %>"</h2>
+  <div class="row my-5">
+    <% @clubs.each do |club| %>
+      <div class="col-4">
+        <h2><%= link_to club.name,  club %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>

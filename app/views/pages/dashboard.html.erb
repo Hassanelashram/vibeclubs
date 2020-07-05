@@ -1,0 +1,12 @@
+<div class="container my-5">
+  <div class="row">
+    <h2 class="col-12">Here are the clubs you have listed: </h2>
+    <% current_user.clubs.each do |club| %>
+      <div class="col-4">
+        <h4><%= link_to club.name, club %> </h4>
+        <em><%= link_to 'Edit', edit_club_path(club) %></em>
+        <em><%= link_to 'Delete', club_path(club), method: :delete %></em>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @countries = Country.all.limit(4)
   end
+
+  def dashboard
+  end
 end

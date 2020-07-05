@@ -1,4 +1,28 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-4 mx-auto my-2">
+      <form action="/clubs">
+       <input type="text" name="city" placeholder="Search for a city">
+       <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <div class="text-center">
+         <p>or</p>
+      <%= link_to 'See all countries', countries_path, class: 'btn btn-primary' %>
+      </div>
 
-<% @countries.each do |country| %>
-<h2><%= link_to country.name, country %></h2>
-<% end %>
+    </div>
+
+    <div class="col-12 text-center">
+
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <h2 class="col-12">Popular Countries</h2>
+    <% @countries.each do |country| %>
+    <div class="col-4">
+      <h2><%= link_to country.name, country %></h2>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,3 +1,11 @@
-<% @country.cities.each do |city| %>
-<h2><%= link_to city.name, city %></h2>
-<% end %>
+
+<div class="container my-5">
+  <h2>Cities in <%= @country.name %></h2>
+  <div class="row">
+    <% @country.cities.each do |city| %>
+    <div class="col-4">
+      <h2><%= link_to city.name, city %></h2>
+    </div>
+    <% end %>
+  </div>
+</div>

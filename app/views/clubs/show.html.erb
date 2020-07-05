@@ -1,0 +1,12 @@
+<h2><%= @club.name %></h2>
+<hr>
+<h4>Address: <%= @club.address %></h4>
+<h4>Entrance for: <%= @club.for_who %></h4>
+<h4>Table Service: <%= @club.table_service %></h4>
+<h4>Dress Code:<%= @club.dress_code %></h4>
+<h4>Phone: <%= @club.phone if present?%> </h4>
+<h4>Website: <%= @club.website %></h4>
+<h4>Instagram: <%= @club.instagram %></h4>
+<h4>Facebook: <%= @club.facebook %></h4>
+<h4>Posted by: <%= @club.user.first_name %></h4>
+<h4>City: <%= @club.city.name %></h4>
