@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_152603) do
+ActiveRecord::Schema.define(version: 2020_07_05_144246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "clubs", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "for_who"
+    t.boolean "table_service", default: true
+    t.string "dress_code"
+    t.string "phone"
+    t.string "website"
+    t.string "instagram"
+    t.string "facebook"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "city_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["city_id"], name: "index_clubs_on_city_id"
+    t.index ["user_id"], name: "index_clubs_on_user_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +55,13 @@ ActiveRecord::Schema.define(version: 2020_07_03_152603) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "clubs", "cities"
+  add_foreign_key "clubs", "users"
 end
