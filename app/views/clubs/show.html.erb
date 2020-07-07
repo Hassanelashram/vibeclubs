@@ -1,17 +1,53 @@
-<h2><%= @club.name %></h2>
-<hr>
-<h4>Address: <%= @club.address %></h4>
-<h4>Entrance for: <%= @club.for_who %></h4>
-<h4>Table Service: <%= @club.table_service %></h4>
-<h4>Dress Code:<%= @club.dress_code %></h4>
-<h4>Phone: <%= @club.phone if present?%> </h4>
-<h4>Website: <%= @club.website %></h4>
-<h4>Instagram: <%= @club.instagram %></h4>
-<h4>Facebook: <%= @club.facebook %></h4>
-<h4>Posted by: <%= @club.user.first_name %></h4>
-<h4>City: <%= @club.city.name %></h4>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @club.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+              <img src="<%= cl_image_path photo.key %>" class="d-block w-100" alt="...">
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 d-flex justify-content-between">
+      <h2><%= @club.name %> · <%= @club.city.name %></h2>
+      <h2 class=""><i class="fas fa-star"></i>4.5</h2>
+    </div>
+    <hr>
+    <div class="col-12">
+      <hr>
+      <h2><strong>Address:</strong> <%= @club.address %></h2>
+      <h2><strong>Accessible for: </strong><%= @club.for_who %></h2>
+      <h2><strong>Table service: </strong><%= @club.table_service %></h2>
+      <h2><strong>Dress code: </strong> <%= @club.dress_code %></h2>
+      <h2><strong>Phone: </strong> <%= @club.phone %></h2>
+    </div>
+    <div class="col-3 mx-auto">
+      <%= link_to @club.facebook do  %>
+        <i class="fab fa-facebook"></i>
+      <% end %>
+      <%= link_to @club.instagram do  %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+      <%= link_to @club.website do  %>
+        <i class="fas fa-globe"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-<% @club.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+
