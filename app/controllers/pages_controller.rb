@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @countries = Country.all.limit(4)
+    @countries = Country.all.order(created_at: :asc).limit(3)
+    @featured = Club.all.limit(3)
   end
 
   def dashboard
