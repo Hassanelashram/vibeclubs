@@ -25,6 +25,4 @@ end
     city: City.all.sample,
     user: User.first
     )
-
-
 end

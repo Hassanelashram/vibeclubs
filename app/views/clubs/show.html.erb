@@ -10,3 +10,8 @@
 <h4>Facebook: <%= @club.facebook %></h4>
 <h4>Posted by: <%= @club.user.first_name %></h4>
 <h4>City: <%= @club.city.name %></h4>
+
+
+<% @club.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>

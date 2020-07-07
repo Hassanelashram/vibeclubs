@@ -1,6 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a href="/" class="navbar-brand">Vibe Clubs</a>
-
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+    <a href="/" style="color: white;" class="navbar-brand">Vibe Clubs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,11 +9,11 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "List a club", new_club_path, class: "btn btn-success mr-3" %>
+          <%= link_to "List a club", new_club_path, class: "btn btn-vibe mr-3" %>
         </li>
 
         <div class="dropdown">
-          <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="btn btn-vibe dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My account
           </a>
 
