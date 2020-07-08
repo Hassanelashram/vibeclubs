@@ -6,6 +6,11 @@ class PagesController < ApplicationController
     @featured = Club.all.limit(3)
   end
 
+  def admin
+    @city = City.new
+    @country = Country.new
+  end
+
   def dashboard
   end
 end

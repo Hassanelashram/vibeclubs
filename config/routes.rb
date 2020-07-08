@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
-  resources :countries, only: [:show, :index]
-  resources :cities, only: [:show, :index]
+  get '/admin', to: 'pages#admin', as: 'admin'
+  resources :countries, only: [:show, :index, :create]
+  resources :cities, only: [:show, :index, :create]
   resources :clubs
   devise_for :users
   root to: 'pages#home'

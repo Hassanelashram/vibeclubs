@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row my-5" id="accordionExample">
+    <div  class="col-6">
+        <button class="btn  btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Create a new Country
+        </button>
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= simple_form_for(@country) do |f| %>
+        <%= f.input :name, placeholder: 'Country name', label: false %>
+        <%= f.input :image, placeholder: 'Paste Image address', label: false %>
+        <%= f.submit class: 'btn btn-success' %>
+      <% end %>
+      </div>
+    </div>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-success btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+      <%= simple_form_for(@city) do |f| %>
+        <%= f.input :name, placeholder: 'City name', label: false %>
+        <%= f.input :image, placeholder: 'Paste image address', label: false %>
+        <%= f.association :country, include_blank: false, label: false %>
+        <%= f.submit class: 'btn btn-success'%>
+      <% end %>
+      </div>
+    </div>
+
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col">
+      <div class="box-count">
+        <h2><%= User.count %> Users</h2>
+      </div>
+    </div>
+    <div class="col">
+      <div class="box-count">
+        <h2><%= City.count %> Cities</h2>
+      </div>
+    </div>
+      <div class="col">
+        <div class="box-count">
+        <h2><%= Country.count %> Reviews</h2>
+      </div>
+      </div>
+      <div class="col">
+        <div class="box-count">
+          <h2><%= Country.count %> Countries</h2>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+  </div>
+
+
+
+
+
+
