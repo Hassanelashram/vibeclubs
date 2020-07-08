@@ -11,14 +11,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+.carousel-inner {
+  height: 60vh;
+}
 .carousel-item {
   height: 60vh;
   width: 100%;
-  object-fit: cover;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
+.box-count {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 10px;
+  text-align: center;
+}
 i {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-right: 20px;
 }

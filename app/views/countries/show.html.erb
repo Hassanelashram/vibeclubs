@@ -1,11 +1,14 @@
-
 <div class="container my-5">
   <h2>Cities in <%= @country.name %></h2>
   <div class="row">
     <% @country.cities.each do |city| %>
-    <div class="col-4">
-      <h2><%= link_to city.name, city %></h2>
-    </div>
-    <% end %>
+        <div class="col-sm-12 col-lg-4">
+          <%= link_to city do  %>
+          <div class="card-country" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= city.image %>')">
+            <h2 style="color: white;" class="card-title"><%= city.name %></h2>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
   </div>
 </div>
