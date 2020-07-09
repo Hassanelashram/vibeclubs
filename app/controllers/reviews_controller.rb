@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  def show
+    @review = Review.find(params[:id])
+  end
 
   def create
     @club = Club.find(params[:club_id])
@@ -10,6 +13,16 @@ class ReviewsController < ApplicationController
     else
       render @club
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(confirmed: true)
+    @review.save
+    redirect_to root_url
   end
 
 
