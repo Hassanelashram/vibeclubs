@@ -1,5 +1,5 @@
 class CountriesController < ApplicationController
-  before_action :set_country, only: [:show]
+  before_action :set_country, only: [:show, :edit, :update, :destroy]
   def index
     @countries = Country.order(name: :desc)
   end
@@ -14,6 +14,21 @@ class CountriesController < ApplicationController
     else
       render 'pages/admin'
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @country = Country.update(country_params)
+    if @country.save
+      redirect_to admin_path
+    end
+  end
+
+  def destroy
+    @country.destroy
+    redirect_to admin_path
   end
 
   private

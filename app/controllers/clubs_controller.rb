@@ -53,7 +53,6 @@ class ClubsController < ApplicationController
   end
 
   private
-
   def set_club
     @club = Club.find(params[:id])
   end
