@@ -1,10 +1,24 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
   def index
-    @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
+    @clubs = Club.all
+    # @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
+    if params[:city].present?
+      @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
+    end
+
+    if params[:public].present?
+      @clubs = @clubs.where(for_who: 'Public')
+    end
+
+    if params[:table].present?
+      @clubs = @clubs.where(table_service: 'true')
+    end
   end
 
   def show
+    @similar = Club.where.not(id: @club.id)
+    @similar = @similar.where(city: @club.city, table_service: @club.table_service, for_who: @club.for_who).limit(3)
   end
 
   def edit

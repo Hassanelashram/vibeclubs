@@ -9,6 +9,11 @@ class CountriesController < ApplicationController
 
   def create
     @country = Country.new(country_params)
+    if @country.save
+      redirect_to admin_path
+    else
+      render 'pages/admin'
+    end
   end
 
   private
@@ -18,6 +23,6 @@ class CountriesController < ApplicationController
   end
 
   def country_params
-    params.require(:country).permit(:name)
+    params.require(:country).permit(:name, :image)
   end
 end
