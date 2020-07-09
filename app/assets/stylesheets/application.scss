@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "clubs/index";
+
 .carousel-inner {
   height: 60vh;
 }
@@ -23,6 +25,12 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.form-box {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
 .box-count {
