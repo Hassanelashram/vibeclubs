@@ -11,7 +11,7 @@
         <%= simple_form_for([@club, Review.new]) do |f| %>
           <%= f.input :email %>
           <%= f.input :content %>
-          <%= f.input :stars %>
+          <%= f.input :stars, collection: 1..5, include_blank: false %>
           <%= f.submit class: 'btn btn-vibe ' %>
         <% end %>
       </div>
