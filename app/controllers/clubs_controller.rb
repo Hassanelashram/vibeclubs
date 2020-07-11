@@ -28,6 +28,7 @@ class ClubsController < ApplicationController
     @club.update(club_params)
     if @club.save
       redirect_to @club
+      flash[:notice] = 'Club created'
     else
       render :edit
     end

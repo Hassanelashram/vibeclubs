@@ -21,10 +21,10 @@ class CitiesController < ApplicationController
     @city = City.new(city_params)
     if @city.save
       redirect_to admin_path
-      flash[:success] = 'Posted'
+      flash[:alert] = 'City was created'
     else
-      render 'pages/admin'
-      flash[:warning] = 'Could not post'
+      redirect_to admin_path
+      flash[:notice] = 'Could not create'
     end
   end
 
