@@ -14,6 +14,8 @@ class ClubsController < ApplicationController
     if params[:table].present?
       @clubs = @clubs.where(table_service: 'true')
     end
+
+
   end
 
   def show

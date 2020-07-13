@@ -1,3 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:show, :index, :create]
+  before_action :authenticate_user!, only: [:admin]
+
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  end
 end
