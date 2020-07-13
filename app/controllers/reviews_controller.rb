@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def show
     @review = Review.find(params[:id])
   end
@@ -9,9 +8,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.club = @club
     if @review.save
+      flash[:alert] = 'Please check your email'
       redirect_to @club
     else
-      render @club
+      redirect_to @club
+      flash[:notice] = 'Please make sure to fill everything'
     end
   end
 
@@ -23,10 +24,11 @@ class ReviewsController < ApplicationController
     @review.update(confirmed: true)
     @review.save
     redirect_to root_url
+    flash[:notice] = 'Your review was confirmed'
   end
 
-
   private
+
   def review_params
     params.require(:review).permit(:email, :stars, :content)
   end

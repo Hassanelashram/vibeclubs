@@ -12,7 +12,6 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to 'Open to public only', clubs_path(request.params.merge(public: 'public')), class: 'dropdown-item' %>
           <%= link_to 'With table service', clubs_path(request.params.merge(table: 'tableservice')), class: 'dropdown-item' %>
-          <a class="dropdown-item" href="#">Highest ratings</a>
         </div>
       </div>
     </div>
@@ -30,7 +29,7 @@
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
               <h2 class="card-title"><%= club.name.truncate(14) %></h2>
-              <h2 class=""><i class="fas fa-star"></i>4.5</h2>
+              <h2 class=""><i class="fas fa-star"></i><%= club.average_rating %></h2>
             </div>
             <p class="ml-2"><%= club.city.name %></p>
           </div>

@@ -12,7 +12,8 @@ class CountriesController < ApplicationController
     if @country.save
       redirect_to admin_path
     else
-      render 'pages/admin'
+      redirect_to admin_path
+      flash[:notice] = 'Could not create'
     end
   end
 
