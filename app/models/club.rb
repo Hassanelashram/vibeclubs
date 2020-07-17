@@ -1,8 +1,9 @@
 class Club < ApplicationRecord
   belongs_to :user
   belongs_to :city
+  belongs_to :country
   has_many_attached :photos
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :name, :photos, :address,
             :dress_code, :phone, presence: true

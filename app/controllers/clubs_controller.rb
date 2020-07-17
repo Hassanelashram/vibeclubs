@@ -4,7 +4,7 @@ class ClubsController < ApplicationController
     @clubs = Club.all
     # @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
     if params[:city].present?
-      @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
+      @clubs = Club.joins(:city, :country).where("cities.name ILIKE ? OR countries.name ILIKE ?", "%#{params[:city]}%", "%#{params[:city]}%")
     end
 
     if params[:public].present?
@@ -14,8 +14,6 @@ class ClubsController < ApplicationController
     if params[:table].present?
       @clubs = @clubs.where(table_service: 'true')
     end
-
-
   end
 
   def show
@@ -62,6 +60,6 @@ class ClubsController < ApplicationController
 
   def club_params
     params.require(:club).permit(:name, :address, :for_who, :table_service, :dress_code,
-                                 :phone, :website, :instagram, :facebook, :city_id, photos: [])
+                                 :phone, :website, :instagram, :country_id, :facebook, :city_id, photos: [])
   end
 end

@@ -5,6 +5,11 @@ class CountriesController < ApplicationController
   end
 
   def show
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { country: @country, cities: @country.cities } }
+    end
   end
 
   def create

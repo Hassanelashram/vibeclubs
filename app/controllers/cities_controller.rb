@@ -2,9 +2,20 @@ class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
   def index
     @cities = City.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { cities: @cities } }
+    end
   end
 
   def show
+
+    @names = @city.clubs.map {|club| club.name }
+    respond_to do |format|
+      format.html
+      format.json { render json: { city: @city, club_name: @names} }
+    end
   end
 
   def edit
