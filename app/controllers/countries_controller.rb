@@ -26,7 +26,7 @@ class CountriesController < ApplicationController
   end
 
   def update
-    @country = Country.update(country_params)
+    @country.update(country_params)
     if @country.save
       redirect_to admin_path
     end
