@@ -35,9 +35,13 @@
             <div class="col-sm-12 col-lg-4">
               <%= f.input :facebook, label: false, placeholder: 'Facebook url' %>
             </div>
-            <div class="col-12">
+            <div class="col-12 hidden">
               <hr>
-              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+              <%= f.input :photos, as: :file, input_html: { class: 'd-none', id: 'photo-input', multiple: true}, label_html: { class: 'upload-photo'}, label: '📷 Upload photos' %>
+              <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+              <div id="photos-preview">
+
+              </div>
             </div>
             <div class="col-12">
               <hr>
@@ -54,6 +58,7 @@
            <li>Here is a tip</li>
            <li>Here is a tip</li>
            <li>Here is a tip</li>
+
          </ul>
        </div>
      </div>

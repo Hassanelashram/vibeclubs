@@ -24,11 +24,13 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll()
+  previewImageOnFileSelect()
 });
 
 import "controllers"
