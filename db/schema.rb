@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_215431) do
+ActiveRecord::Schema.define(version: 2020_07_16_142857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,9 @@ ActiveRecord::Schema.define(version: 2020_07_09_215431) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "city_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "country_id", null: false
     t.index ["city_id"], name: "index_clubs_on_city_id"
+    t.index ["country_id"], name: "index_clubs_on_country_id"
     t.index ["user_id"], name: "index_clubs_on_user_id"
   end
 
@@ -99,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_215431) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cities", "countries"
   add_foreign_key "clubs", "cities"
+  add_foreign_key "clubs", "countries"
   add_foreign_key "clubs", "users"
   add_foreign_key "reviews", "clubs"
 end
