@@ -27,6 +27,11 @@ class ReviewsController < ApplicationController
     flash[:notice] = 'Your review was confirmed'
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to admin_path
+  end
   private
 
   def review_params

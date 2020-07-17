@@ -1,23 +1,62 @@
-<div class="container my-5">
-  <div class="row">
-    <div class="col-sm-12 col-lg-6 mx-auto">
-      <div data-controller="field" class="form-box">
-        <%= simple_form_for(@club) do |f| %>
-          <%= f.input :name, label: false, placeholder: 'Club name' %>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-          <%= f.input :address, label: false, placeholder: 'Address' %>
-          <%= f.input :for_who, collection: ['Public', 'Guest-list'], include_blank: false, label: false  %>
-          <%= f.input :table_service %>
-          <%= f.input :dress_code, label: false, include_blank: false, placeholder: 'Dress Code' %>
-          <%= f.input :phone, label: false, placeholder: 'Phone number' %>
-          <%= f.input :website, label: false, placeholder: 'Website' %>
-          <%= f.input :instagram, label: false, placeholder: 'Instagram username' %>
-          <%= f.input :facebook, label: false, placeholder: 'Facebook username' %>
-          <%= f.association :country, label: false , include_blank: false, input_html: {'data-target': 'field.countries', 'data-action': 'change->field#changeField'} %>
-          <%= f.association :city, label: false , include_blank: false, input_html: {'data-target': 'field.cities'} %>
-          <%= f.submit 'Submit', class: 'btn btn-success' %>
-        <% end %>
+<div data-controller="field" class="container my-5">
+   <%= simple_form_for(@club) do |f| %>
+   <div class="form-row">
+     <div class="col-sm-12 col-lg-8">
+      <div class="form-box">
+         <%= f.input :name, label: false, placeholder: 'Club name' %>
+         <div class="form-row">
+           <div class="col-sm-12 col-lg-6">
+             <%= f.association :country, label: false , include_blank: false, input_html: {'data-target': 'field.countries', 'data-action': 'change->field#changeField'} %>
+           </div>
+           <div class="col-sm-12 col-lg-6">
+             <%= f.association :city, label: false , include_blank: false, input_html: {'data-target': 'field.cities'} %>
+           </div>
+           <div class="col-12">
+             <%= f.input :address, label: false, placeholder: 'Address' %>
+           </div>
+           <div class="col-sm-12 col-lg-6">
+             <%= f.input :for_who, collection: ['Public', 'Guest-list'], include_blank: false, label: false  %>
+           </div>
+           <div class="col-sm-12 col-lg-6">
+            <%= f.input :table_service %>
+           </div>
+            <div class="col-sm-12 col-lg-6">
+             <%= f.input :dress_code, label: false, include_blank: false, placeholder: 'Dress Code' %>
+           </div>
+           <div class="col-sm-12 col-lg-6">
+            <%= f.input :phone, label: false, placeholder: 'Phone number' %>
+           </div>
+           <div class="col-sm-12 col-lg-4">
+              <%= f.input :website, label: false, placeholder: 'Website url' %>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+              <%= f.input :instagram, label: false, placeholder: 'Instagram url' %>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+              <%= f.input :facebook, label: false, placeholder: 'Facebook url' %>
+            </div>
+            <div class="col-12">
+              <hr>
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+            </div>
+            <div class="col-12">
+              <hr>
+              <%= f.submit 'Submit', class: 'btn btn-success w-100' %>
+            </div>
+         </div>
       </div>
     </div>
-  </div>
+    <div class="col-sm-12 col-lg">
+       <div class="form-box">
+         <h4>Some tips when uploading</h4>
+         <ul>
+           <li>Here is a tip</li>
+           <li>Here is a tip</li>
+           <li>Here is a tip</li>
+           <li>Here is a tip</li>
+         </ul>
+       </div>
+     </div>
+<% end %>
+</div>
 </div>

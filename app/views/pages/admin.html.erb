@@ -34,6 +34,7 @@
     </div>
   </div>
   <div class="row my-5">
+    <h2 class="col-12">Counts</h2>
     <div class="col">
       <div class="box-count">
         <h2><%= User.count %> Users</h2>
@@ -62,7 +63,7 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row form-box">
   <div class="col-sm-12 col-lg-6">
     <table class="table">
   <thead>
@@ -78,8 +79,8 @@
       <td><%= city.name %></td>
       <td><%= city.clubs.count %></td>
       <td>
-        <%= link_to 'Edit', edit_city_path(city) %> -
-        <%= link_to 'Delete', city, method: :delete %>
+        <%= link_to 'Edit', edit_city_path(city), class: 'btn btn-warning' %> -
+        <%= link_to 'Delete', city, method: :delete, class: 'btn btn-danger' %>
       </td>
     </tr>
     <%  end %>
@@ -103,8 +104,41 @@
       <td><%= country.name %></td>
       <td><%= country.cities.count %></td>
       <td>
-        <%= link_to 'Edit', edit_country_path(country) %> -
-        <%= link_to 'Delete', country, method: :delete %>
+        <%= link_to 'Edit', edit_country_path(country), class: 'btn btn-warning' %> -
+        <%= link_to 'Delete', country, method: :delete,class: 'btn btn-danger' %>
+      </td>
+    </tr>
+    <%  end %>
+
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div class="row my-5 form-box">
+  <h2 class="col-12">Reviews</h2>
+  <div class="col-12 ">
+    <table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">Reviewer</th>
+      <th scope="col">Content</th>
+      <th scope="col">Stars</th>
+      <th scope="col">Club</th>
+      <th scope="col">Confirmed</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Review.all.each do |review| %>
+    <tr>
+      <td><%= review.email %></td>
+      <td><%= review.content %></td>
+      <td><%= review.club.name %></td>
+      <td><%= review.stars %> stars</td>
+      <td><%= review.confirmed ? 'Yes' : 'No' %></td>
+      <td>
+        <%= link_to 'Delete', review, method: :delete, class: 'btn btn-danger' %>
       </td>
     </tr>
     <%  end %>
