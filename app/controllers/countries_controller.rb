@@ -1,11 +1,11 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
   def index
-    @countries = Country.order(name: :desc)
+    @countries = Country.order(name: :asc)
   end
 
   def show
-
+    @cities = @country.cities.order(name: :asc)
     respond_to do |format|
       format.html
       format.json { render json: { country: @country, cities: @country.cities } }

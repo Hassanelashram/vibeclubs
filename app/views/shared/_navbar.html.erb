@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
     <a href="/" style="color: white;" class="navbar-brand">Vibe Clubs</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <i style="color: white;" class="fas fa-bars"></i>
   </button>
 
 
@@ -25,7 +25,8 @@
         </div>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Are you a business?", new_user_session_path, class: "btn btn-vibe mr-3" %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-vibe' %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-vibe mr-3" %>
         </li>
       <% end %>
     </ul>

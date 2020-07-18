@@ -57,3 +57,21 @@ i {
   width: 200px;
   margin: 10px 10px;
 }
+
+.club-info-banner {
+  background-color: #76128F;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  h2 {
+    color: white;
+  }
+
+  i {
+    width: 50px;
+    background-color: white;
+    padding: 10px;
+  }
+}

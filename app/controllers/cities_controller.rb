@@ -10,7 +10,8 @@ class CitiesController < ApplicationController
   end
 
   def show
-
+    @city.view += 1
+    @city.save
     @names = @city.clubs.map {|club| club.name }
     respond_to do |format|
       format.html

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :reviews, only: [:create]
   end
+  resources :features, only: [:create, :destroy]
   resources :reviews, only: [:update, :edit, :show, :destroy]
   devise_for :users
   root to: 'pages#home'
