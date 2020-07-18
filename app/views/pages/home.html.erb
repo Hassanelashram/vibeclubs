@@ -1,23 +1,24 @@
-<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1545128485-c400e7702796?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')">
+<div class="banner" style="background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1589793363686-10ec299b6fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1909&q=80')">
   <div class="container">
-    <h1 class="main-heading ">Clubbing Simplified</h1>
+    <h1 class="main-heading ">Connecting The Culture</h1>
     <h3 style="color:white;">Find the best clubs</h3>
+    <h3 style="color:white;">RnB | Hip Hop | Dancehall | Afrobeats </h3>
     <form action="/clubs">
-       <input type="text" autocomplete="off" name="city" placeholder="Search for a city/country">
+       <input class="text-center" type="text" autocomplete="off" name="city" placeholder="Search for a City/Country">
       </form>
       <p style="color: white;" class="mt-3">Or</p>
       <%= link_to 'See all countries', countries_path, class: 'btn btn-vibe mt-2', style: 'width: 300px;' %>
   </div>
 </div>
 
-<div class="container my-5">
+<div class="container my-5 ">
   <div class="row my-5">
-    <h2 class="col-12 heading-2">Popular Countries</h2>
-      <% @countries.each do |country| %>
+    <h2 class="col-12 text-center heading-2">Popular Countries</h2>
+      <% @cities.each do |city| %>
         <div class="col-sm-12 col-lg-4">
-          <%= link_to country do  %>
-          <div class="card-country" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= country.image %>')">
-            <h2 style="color: white;" class="card-title"><%= country.name %></h2>
+          <%= link_to city do  %>
+          <div class="card-country" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= city.image %>')">
+            <h2 style="color: white;" class="card-title"><%= city.name %></h2>
           </div>
           <% end %>
         </div>
@@ -25,18 +26,18 @@
   </div>
 
   <div class="row my-4">
-    <h2 class="col-12 heading-2">Featured Clubs</h2>
-      <% @featured.each do |club| %>
+    <h2 class="col-12 text-center heading-2">Featured Clubs</h2>
+      <% @featured.each do |featured| %>
         <div class="col-sm-12 col-lg-4">
-          <%= link_to club do  %>
+          <%= link_to featured.club do  %>
           <div class="card-club">
-            <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= cl_image_path club.photos.first.key %>')">
+            <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= cl_image_path featured.club.photos.first.key %>')">
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
-              <h2 class="card-title"><%= club.name.truncate(11) %></h2>
-              <h2 class=""><i class="fas fa-star"></i><%= club.average_rating %></h2>
+              <h2 class="card-title"><%= featured.club.name.truncate(11) %></h2>
+              <h2 class=""><i class="fas fa-star"></i><%= featured.club.average_rating %></h2>
             </div>
-            <p class="ml-2"><%= club.city.name %></p>
+            <p class="ml-2"><%= featured.club.city.name %></p>
           </div>
           <% end %>
         </div>
@@ -45,14 +46,14 @@
 
 <hr>
 
-  <div class="row">
+  <div class="row text-center">
     <h2 class="col-12 heading-2">Club Owner?</h2>
     <h4 class="col-12">
       More exposure, More customers, More profit <br>
       List your club for free and reach millions of
       Visitors visiting your city.
     </h4>
-    <div class="col-sm-12 col-lg-4">
+    <div class="col-sm-12 col-lg-4 mx-auto">
       <%= link_to 'List my club', new_club_path, class: 'btn btn-vibe' %>
     </div>
 

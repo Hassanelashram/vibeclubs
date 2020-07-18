@@ -18,7 +18,7 @@ class ClubsController < ApplicationController
 
   def show
     @similar = Club.where.not(id: @club.id)
-    @similar = @similar.where(city: @club.city, table_service: @club.table_service, for_who: @club.for_who).limit(3)
+    @similar = @similar.where(city: @club.city).limit(3)
   end
 
   def edit

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row my-5" id="accordionExample">
-    <div  class="col-6">
+    <div  class="col-sm-12 col-lg-4">
         <button class="btn  btn-success btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Create a new Country
         </button>
@@ -15,7 +15,7 @@
       </div>
     </div>
     </div>
-    <div class="col-6">
+    <div class="col-sm-12 col-lg-4">
       <button class="btn btn-success btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Create new city
         </button>
@@ -30,7 +30,22 @@
       <% end %>
       </div>
     </div>
+    </div>
 
+    <div class="col-sm-12 col-lg-4">
+      <div class="form-box">
+        <h5>Featured Club</h5>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add a new
+          </button>
+          <div class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton">
+            <% Club.order(name: :desc).each do |club| %>
+              <%= link_to club.name, features_path(id: club.id), method: :post, class: 'dropdown-item' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row my-5">

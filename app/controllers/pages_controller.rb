@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
   before_action :is_admin?, only: :admin
   def home
-    @countries = Country.all.order(created_at: :asc).limit(3)
-    @featured = Club.all.limit(3)
+    @cities = City.all.order(view: :desc).limit(3)
+    @featured = Feature.last(3)
   end
 
   def admin

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_142857) do
+ActiveRecord::Schema.define(version: 2020_07_18_165140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_142857) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.integer "view", default: 0
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
@@ -70,6 +71,13 @@ ActiveRecord::Schema.define(version: 2020_07_16_142857) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.bigint "club_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["club_id"], name: "index_features_on_club_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -103,5 +111,6 @@ ActiveRecord::Schema.define(version: 2020_07_16_142857) do
   add_foreign_key "clubs", "cities"
   add_foreign_key "clubs", "countries"
   add_foreign_key "clubs", "users"
+  add_foreign_key "features", "clubs"
   add_foreign_key "reviews", "clubs"
 end
