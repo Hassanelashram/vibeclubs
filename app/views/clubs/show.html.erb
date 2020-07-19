@@ -22,14 +22,17 @@
 
 <div class="container">
   <div class="row my-2">
-    <div class="col-12 d-flex justify-content-between">
+    <div class="col-12">
       <h2><%= @club.name %> · <%= @club.city.name %></h2>
       <h2 class="">Rating: <%= @club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
     </div>
     <div class="col-12">
       <hr>
       <div class="club-info-banner">
-        <i class="fas fa-map-marker-alt"></i> <h2><%= @club.address %></h2>
+        <i class="fas fa-map-marker-alt"></i> <h2> <a style="text-decoration: none;color: white;" href="https://www.google.com/search?q=<%= @club.address %>"> View Address</a></h2>
+      </div>
+      <div class="club-info-banner">
+        <i class="fas fa-music"></i> <h2><%= @club.genre %></h2>
       </div>
       <div class="club-info-banner">
         <i class="fas fa-door-open"></i> <h2><%= @club.for_who %></h2>

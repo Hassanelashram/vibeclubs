@@ -9,6 +9,15 @@ class CitiesController < ApplicationController
     end
   end
 
+  def autocomplete
+    if params[:city]
+      @cities = City.where("name ILIKE ?", "#{params[:city]}%")
+    else
+      @cities = []
+    end
+    render json: {cities: @cities}
+  end
+
   def show
     @city.view += 1
     @city.save
