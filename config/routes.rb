@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
   get '/admin', to: 'pages#admin', as: 'admin'
+  get "/autocomplete", to: 'cities#autocomplete'
   resources :countries
   resources :cities
   resources :clubs do

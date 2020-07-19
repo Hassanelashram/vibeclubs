@@ -1,10 +1,11 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   def index
     @clubs = Club.all
     # @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
     if params[:city].present?
-      @clubs = Club.joins(:city, :country).where("cities.name ILIKE ? OR countries.name ILIKE ?", "%#{params[:city]}%", "%#{params[:city]}%")
+      @clubs = Club.joins(:city, :country).where("cities.name ILIKE ?", "%#{params[:city]}%")
     end
 
     if params[:public].present?
