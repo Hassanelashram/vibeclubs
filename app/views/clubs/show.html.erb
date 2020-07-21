@@ -100,7 +100,7 @@
   <hr>
   <div class="row">
     <div class="col-sm-12 col-lg-6 my-2">
-        <%= link_to 'Call Now', root_url, class: 'btn btn-vibe w-100' %>
+        <%= link_to 'Call Now', "tel:#{@club.phone}", class: 'btn btn-vibe w-100' %>
       </div>
       <div class="col-sm-12 col-lg-6 my-2">
         <button type="button" class="btn btn-vibe-outline w-100" data-toggle="modal" data-target="#exampleModal">
