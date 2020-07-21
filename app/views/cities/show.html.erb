@@ -9,7 +9,7 @@
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
               <h2 class="card-title"><%= club.name.truncate(11) %></h2>
-              <h2 class=""><i class="fas fa-star"></i>4.5</h2>
+              <h2 class=""><%= club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
             </div>
             <p class="ml-2"><%= club.city.name %></p>
           </div>

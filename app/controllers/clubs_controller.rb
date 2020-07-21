@@ -1,9 +1,9 @@
 class ClubsController < ApplicationController
   before_action :set_club, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @clubs = Club.all
-    # @clubs = Club.joins(:city).where("cities.name ILIKE ?", "%#{params[:city]}%")
     if params[:city].present?
       @clubs = Club.joins(:city, :country).where("cities.name ILIKE ?", "%#{params[:city]}%")
     end
@@ -55,12 +55,13 @@ class ClubsController < ApplicationController
   end
 
   private
+
   def set_club
     @club = Club.find(params[:id])
   end
 
   def club_params
-    params.require(:club).permit(:name, :address, :for_who, :table_service, :dress_code,
-                                 :phone, :website, :instagram, :country_id, :facebook, :city_id, photos: [])
+    params.require(:club).permit(:name, :address, :for_who, :table_service, :dress_code, :genre, :open_from, :closes_at,
+                                 :phone, :website, :instagram, :country_id, :facebook, :city_id, photos: [], day: [])
   end
 end

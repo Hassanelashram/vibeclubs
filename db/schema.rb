@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_150352) do
+ActiveRecord::Schema.define(version: 2020_07_20_183701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 2020_07_19_150352) do
     t.bigint "user_id", null: false
     t.bigint "country_id", null: false
     t.string "genre"
+    t.text "day", default: [], array: true
+    t.integer "open_from"
+    t.integer "closes_at"
     t.index ["city_id"], name: "index_clubs_on_city_id"
     t.index ["country_id"], name: "index_clubs_on_country_id"
     t.index ["user_id"], name: "index_clubs_on_user_id"
