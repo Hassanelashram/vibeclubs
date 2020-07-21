@@ -23,34 +23,40 @@
 <div class="container">
   <div class="row my-2">
     <div class="col-12">
-      <h2><%= @club.name %> · <%= @club.city.name %></h2>
-      <h2 class="">Rating: <%= @club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
+      <div class="d-flex justify-content-between">
+        <h2><%= @club.name %> </h2>
+      <h2><%= @club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
+      </div>
+
+      <p class=""><%= @club.city.name %></p>
     </div>
     <div class="col-12">
       <hr>
       <div class="club-info-banner">
-        <i class="fas fa-map-marker-alt"></i> <h4> <a style="text-decoration: none;color: white;" href="https://www.google.com/search?q=<%= @club.address %>"> View Address</a></h4>
+        <i class="fas fa-map-marker-alt"></i> <p> <a style="text-decoration: none;color: white;" target="_blank" href="<%= @club.address %>"> View Location</a></p>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-music"></i> <h4><%= @club.genre %></h4>
+        <i class="fas fa-music"></i> <p><%= @club.genre %></p>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-door-open"></i> <h4><%= @club.for_who %></h4>
+        <i class="fas fa-door-open"></i> <p><%= @club.for_who %></p>
       </div>
       <div class="club-info-banner ">
-        <i class="fas fa-tshirt"></i> <h4><%= @club.dress_code %></h4>
+        <i class="fas fa-tshirt"></i> <p><%= @club.dress_code %></p>
       </div>
       <div class="club-info-banner ">
-        <i class="far fa-clock"></i>
-        <h4>Open:
-          <% @club.day.each do |d| %>
-            <%= d %>
+        <i class="far fa-clock"></i> <p>From: <%= @club.open_from %> to: <%= @club.closes_at %></p>
+      </div>
+      <div class="club-info-banner">
+        <i class="fas fa-calendar-alt"></i>
+        <p class="">
+          <% @club.day.each_with_index do |d, index| %>
+            <%= d[0..2] %> <%= "-" unless index == 5 || index == 0 %>
           <% end %>
-          -- From: <%= @club.open_from %> to: <%= @club.closes_at %>
-        </h4>
+        </p>
       </div>
       <div class="club-info-banner mx-auto">
-        <i class="fas fa-concierge-bell"></i> <h4><%= @club.table_service == true ? 'Vip Table Service' : 'No Vip Table Service' %></h4>
+        <img class="icon" src="https://image.flaticon.com/icons/svg/3094/3094049.svg" alt=""> <p><%= @club.table_service == true ? 'VIP Table Service' : 'No VIP Table Service' %></p>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ class Club < ApplicationRecord
   belongs_to :country
   has_many_attached :photos
   has_many :reviews, dependent: :destroy
-  validates :name, :address,
+  validates :name, :address, :photos,
             :dress_code, :phone, presence: true
 
   def average_rating
