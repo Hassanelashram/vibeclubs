@@ -29,23 +29,29 @@
     <div class="col-12">
       <hr>
       <div class="club-info-banner">
-        <i class="fas fa-map-marker-alt"></i> <h2> <a style="text-decoration: none;color: white;" href="https://www.google.com/search?q=<%= @club.address %>"> View Address</a></h2>
+        <i class="fas fa-map-marker-alt"></i> <h4> <a style="text-decoration: none;color: white;" href="https://www.google.com/search?q=<%= @club.address %>"> View Address</a></h4>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-music"></i> <h2><%= @club.genre %></h2>
+        <i class="fas fa-music"></i> <h4><%= @club.genre %></h4>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-door-open"></i> <h2><%= @club.for_who %></h2>
+        <i class="fas fa-door-open"></i> <h4><%= @club.for_who %></h4>
       </div>
-      <div class="club-info-banner">
-        <i class="fas fa-tshirt"></i> <h2><%= @club.dress_code %></h2>
+      <div class="club-info-banner ">
+        <i class="fas fa-tshirt"></i> <h4><%= @club.dress_code %></h4>
       </div>
-      <div class="club-info-banner">
-        <i class="fas fa-concierge-bell"></i> <h2><%= @club.table_service == true ? 'With table service' : 'No table service' %></h2>
+      <div class="club-info-banner ">
+        <i class="far fa-clock"></i>
+        <h4>Open:
+          <% @club.day.each do |d| %>
+            <%= d %>
+          <% end %>
+          -- From: <%= @club.open_from %> to: <%= @club.closes_at %>
+        </h4>
       </div>
-    </div>
-    <div class="col">
-      <h2><strong> </strong></h2>
+      <div class="club-info-banner mx-auto">
+        <i class="fas fa-concierge-bell"></i> <h4><%= @club.table_service == true ? 'Vip Table Service' : 'No Vip Table Service' %></h4>
+      </div>
     </div>
   </div>
 
@@ -70,11 +76,11 @@
   <hr>
   <div class="row">
     <div class="col-sm-12 col-lg-6 my-2">
-        <%= link_to 'Call now', root_url, class: 'btn btn-vibe w-100' %>
+        <%= link_to 'Call Now', root_url, class: 'btn btn-vibe w-100' %>
       </div>
       <div class="col-sm-12 col-lg-6 my-2">
         <button type="button" class="btn btn-vibe-outline w-100" data-toggle="modal" data-target="#exampleModal">
-          Leave review
+          Leave Review
         </button><%= render 'shared/modal' %>
       </div>
   </div>

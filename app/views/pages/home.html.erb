@@ -38,7 +38,7 @@
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
               <h2 class="card-title"><%= featured.club.name.truncate(11) %></h2>
-              <h2 class=""><i class="fas fa-star"></i><%= featured.club.average_rating %></h2>
+              <h2 class=""><%= featured.club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
             </div>
             <p class="ml-2"><%= featured.club.city.name %></p>
           </div>
@@ -52,7 +52,7 @@
   <div class="row text-center">
     <h2 class="col-12 heading-2">Club Promoter?</h2>
     <h4 class="col-12">
-      List your club for free and reach thousands visting your city.
+      List your club for free and reach thousands visiting your city.
     </h4>
     <div class="col-sm-12 col-lg-4 mx-auto">
       <%= link_to 'List my club', new_club_path, class: 'btn btn-vibe' %>
