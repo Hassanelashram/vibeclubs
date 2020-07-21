@@ -33,22 +33,40 @@
     <div class="col-12">
       <hr>
       <div class="club-info-banner">
-        <i class="fas fa-map-marker-alt"></i> <p> <a style="text-decoration: none;color: white;" target="_blank" href="<%= @club.address %>"> View Location</a></p>
+        <div>
+           <i class="ml-1 fas fa-map-marker-alt"></i>
+        </div>
+          <p> <a style="text-decoration: none;color: white;" target="_blank" href="<%= @club.address %>"> View Location</a></p>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-music"></i> <p><%= @club.genre %></p>
+        <div>
+          <i class="fas fa-music"></i>
+        </div>
+         <p><%= @club.genre %></p>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-door-open"></i> <p><%= @club.for_who %></p>
+        <div>
+          <i class="fas fa-door-open"></i>
+        </div>
+         <p><%= @club.for_who %></p>
       </div>
       <div class="club-info-banner ">
-        <i class="fas fa-tshirt"></i> <p><%= @club.dress_code %></p>
+        <div>
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <p><%= @club.dress_code %></p>
       </div>
       <div class="club-info-banner ">
-        <i class="far fa-clock"></i> <p>From: <%= @club.open_from %> to: <%= @club.closes_at %></p>
+        <div>
+          <i class=" ml-1 far fa-clock"></i>
+        </div>
+         <p>From: <%= @club.open_from %> to: <%= @club.closes_at %></p>
       </div>
       <div class="club-info-banner">
-        <i class="fas fa-calendar-alt"></i>
+        <div>
+          <i class="ml-1 fas fa-calendar-alt"></i>
+        </div>
+
         <p class="">
           <% @club.day.each_with_index do |d, index| %>
             <%= d[0..2] %> <%= "-" unless index == 5 || index == 0 %>
