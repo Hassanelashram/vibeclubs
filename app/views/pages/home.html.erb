@@ -46,10 +46,16 @@
             <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('<%= cl_image_path featured.club.photos.first.key %>')">
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
-              <h2 class="card-title"><%= featured.club.name.truncate(11) %></h2>
-              <h2 class=""><%= featured.club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
+              <h2 style="line-height: 1rem;" class="mt-1 card-title"><%= featured.club.name.truncate(11) %></h2>
+              <p class="m-2"><%= featured.club.city.name %></p>
             </div>
-            <p class="ml-2"><%= featured.club.city.name %></p>
+            <p class="ml-1">
+                <% 5.times do |x| %>
+                  <i class="fa fa-star stars" style="color: <%= x < featured.club.average_rating ? '#f5bb1b' : 'grey'  %>;"></i>
+                <% end %>
+              (<%= featured.club.reviews.count %> <%= 'Review'.pluralize(featured.club.reviews.count) %>)
+              </p>
+
           </div>
           <% end %>
         </div>
