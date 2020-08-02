@@ -25,10 +25,14 @@
     <div class="col-12">
       <div class="d-flex justify-content-between">
         <h2><%= @club.name %> </h2>
-      <h2><%= @club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
+        <p><%= @club.city.name %></p>
       </div>
 
-      <p class=""><%= @club.city.name %></p>
+
+        <% 5.times do |x| %>
+          <i class="fa fa-star stars" style="color: <%= x < @club.average_rating ? '#f5bb1b' : 'grey'  %>;"></i>
+        <% end %>
+        (<%= @club.reviews.count %> <%= 'Review'.pluralize(@club.reviews.count) %>)
     </div>
     <div class="col-12">
       <hr>
@@ -60,7 +64,7 @@
         <div>
           <i class=" ml-1 far fa-clock"></i>
         </div>
-         <p>From: <%= @club.open_from %> to: <%= @club.closes_at %></p>
+         <p>From: <%= @club.open_from %>:00 to: <%= @club.closes_at %>:00</p>
       </div>
       <div class="club-info-banner">
         <div>
@@ -68,8 +72,9 @@
         </div>
 
         <p class="">
+          <% last = @club.day.count %>
           <% @club.day.each_with_index do |d, index| %>
-            <%= d[0..2] %> <%= "-" unless index == 5 || index == 0 %>
+            <%= d[0..2] %> <%= "-" unless index == 0 || index == last - 1%>
           <% end %>
         </p>
       </div>
@@ -100,7 +105,7 @@
   <hr>
   <div class="row">
     <div class="col-sm-12 col-lg-6 my-2">
-        <%= link_to 'Call Now', root_url, class: 'btn btn-vibe w-100' %>
+        <%= link_to 'Call Now', "tel:#{@club.phone}", class: 'btn btn-vibe w-100' %>
       </div>
       <div class="col-sm-12 col-lg-6 my-2">
         <button type="button" class="btn btn-vibe-outline w-100" data-toggle="modal" data-target="#exampleModal">

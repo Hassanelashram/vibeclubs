@@ -11,11 +11,15 @@ export default class extends Controller {
     .then(response => response.json())
     .then((data) => {
       ul.innerHTML = ""
-      data.cities.forEach((city) => {
+      if ( input.value == "" ) {
+        return ''
+      } else {
+        data.cities.forEach((city) => {
         let li = `<a href="/clubs?city=${city.name}">
                     <li>${city.name}<li> </a>`
         ul.insertAdjacentHTML('beforeend', li)
       })
+      }
     })
   }
 
