@@ -25,10 +25,14 @@
     <div class="col-12">
       <div class="d-flex justify-content-between">
         <h2><%= @club.name %> </h2>
-      <h2><%= @club.average_rating %> <i class="fas fa-star" style="color: #f5bb1b;"></i></h2>
+        <p><%= @club.city.name %></p>
       </div>
 
-      <p class=""><%= @club.city.name %></p>
+
+        <% 5.times do |x| %>
+          <i class="fa fa-star stars" style="color: <%= x < @club.average_rating ? '#f5bb1b' : 'grey'  %>;"></i>
+        <% end %>
+        (<%= @club.reviews.count %> <%= 'Review'.pluralize(@club.reviews.count) %>)
     </div>
     <div class="col-12">
       <hr>
@@ -68,8 +72,9 @@
         </div>
 
         <p class="">
+          <% last = @club.day.count %>
           <% @club.day.each_with_index do |d, index| %>
-            <%= d[0..2] %> <%= "-" unless index == 5 || index == 0 %>
+            <%= d[0..2] %> <%= "-" unless index == 0 || index == last - 1%>
           <% end %>
         </p>
       </div>
