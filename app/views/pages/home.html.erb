@@ -4,7 +4,7 @@
     <h3 style="color:white;">Find the best clubs</h3>
     <p style="color:white;">RnB | Hip Hop | Dancehall | Afrobeats </p>
       <form class="mx-auto"  action="/clubs">
-       <input id="search-input" onfocus="removeText('#search-input')" data-target="autocomplete.input" data-action="keyup->autocomplete#fetchCities" class=" w-100 text-center" type="text" autocomplete="off" name="city" placeholder="Search for a City">
+       <input id="search-input" onblur="addText('#search-input')" onfocus="removeText('#search-input')" data-target="autocomplete.input" data-action="keyup->autocomplete#fetchCities" class=" w-100 text-center" type="text" autocomplete="off" name="city" placeholder="Search for a City">
        <ul class="suggestions" data-target="autocomplete.suggestions" class="autocomplete">
       </ul>
     </div>
@@ -15,6 +15,12 @@
           let input = document.querySelector(id)
           input.placeholder = ''
           input.classList.remove('text-center')
+        }
+
+        const addText = (id) => {
+          let input = document.querySelector(id)
+          input.placeholder = 'Search for a city'
+          input.classList.add('text-center')
         }
       </script>
 

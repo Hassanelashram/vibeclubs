@@ -9,10 +9,15 @@
 
             </div>
             <div class="card-description p-1 d-flex justify-content-between">
-              <h2 class="card-title"><%= club.name.truncate(11) %></h2>
-              <h2 class=""><i class="fas fa-star"></i>4.5</h2>
+              <h2 style="line-height: 1rem;"  class="mt-1 card-title"><%= club.name.truncate(14) %></h2>
+              <p class="m-2"><%= club.city.name %></p>
             </div>
-            <p class="ml-2"><%= club.city.name %></p>
+            <p style="line-height: 0.1rem;" class="ml-1">
+                <% 5.times do |x| %>
+                  <i class="fa fa-star stars" style="color: <%= x < club.average_rating ? '#f5bb1b' : 'grey'  %>;"></i>
+                <% end %>
+              (<%= club.reviews.count %> <%= 'Review'.pluralize(club.reviews.count) %>)
+              </p>
           </div>
           <% end %>
           <%= link_to 'Edit', edit_club_path(club), class: 'btn btn-warning' %>
