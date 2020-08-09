@@ -95,7 +95,7 @@
       <td><%= city.clubs.count %></td>
       <td>
         <%= link_to 'Edit', edit_city_path(city), class: 'btn btn-warning mr-1' %>
-        <%= link_to 'Delete', city, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to 'Delete', city, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
       </td>
     </tr>
     <%  end %>
@@ -120,7 +120,7 @@
       <td><%= country.cities.count %></td>
       <td>
         <%= link_to 'Edit', edit_country_path(country), class: 'btn btn-warning mr-1' %>
-        <%= link_to 'Delete', country, method: :delete,class: 'btn btn-danger' %>
+        <%= link_to 'Delete', country, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
       </td>
     </tr>
     <%  end %>
