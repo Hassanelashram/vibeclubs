@@ -9,6 +9,7 @@
       </div>
       <div class="modal-body text-center">
         <%= simple_form_for([@club, Review.new]) do |f| %>
+        <%= f.input :name %>
           <%= f.input :email %>
           <%= f.input :content %>
           <%= f.input :stars, collection: 1..5, include_blank: false %>
